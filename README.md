@@ -1,6 +1,6 @@
 # 🌱 FertiOptimizer App
 
-A powerful Flutter-based smart agriculture management app that helps farmers optimize fertilizer usage, monitor crops, and control irrigation remotely. The app provides real-time sensor data, weather forecasts, and AI-powered recommendations.
+A powerful Flutter-based smart agriculture management app that helps farmers **optimize fertilizer usage**, monitor crops, and control irrigation remotely. The app provides real-time sensor data, weather forecasts, and AI-powered recommendations.
 
 ![Promo GIF](demo/promo.gif)
 
@@ -16,9 +16,16 @@ A powerful Flutter-based smart agriculture management app that helps farmers opt
 - **⚡ Real-time Optimization**
   - One-click fertilizer optimization using ML model
   - NPK level recommendations
-  - Gemini API-powered analysis
-  
+     
   ![Optimization](demo/optimize.gif)
+
+- **🤖 Gemini AI-Powered Analysis**
+  - 💬 Chat with a Gemini-powered AI bot for instant answers  
+  - 🌾 Get contextual suggestions based on real-time weather and soil data  
+  - 🗣️ Supports multiple regional languages for enhanced accessibility  
+  - 🧠 AI learns from inputs and provides accurate insights
+
+  ![Gemini Analysis](demo/gemini.gif)
 
 - **🌦 Weather Forecast**
   - 7-day weather forecast with remarks
@@ -49,6 +56,15 @@ A powerful Flutter-based smart agriculture management app that helps farmers opt
   - View field-specific sensor data
   
   ![Field Switching](demo/fields.gif)
+
+- **⚙️ Settings Page**
+  - 👤 View and manage your **user profile**  
+  - 🔔 Toggle **Email Alerts** for critical updates  
+  - 📲 Enable or disable **Push Notifications**  
+  - 💧 Switch **Remote Motor Control Feature** on/off  
+  - 🚪 Use the **Logout Button** to securely sign out  
+
+![Settings Page](demo/settings.gif)
 
 ## 🛠 Tech Stack
 
@@ -121,7 +137,7 @@ A powerful Flutter-based smart agriculture management app that helps farmers opt
     └── weatherContainer.dart
 ```
 
-## 🌐 Backend APIs (Node.js Version)
+## 🌐 Backend APIs
 
 The backend is built using Node.js with Express.js, handling:
 
