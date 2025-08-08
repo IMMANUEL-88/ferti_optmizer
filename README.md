@@ -1,6 +1,6 @@
-# 🌱 FertiOptimizer Admin App
+# 🌱 FertiOptimizer App
 
-A powerful Flutter-based smart agriculture management app that helps farmers optimize fertilizer usage, monitor crops, and control irrigation remotely. The admin panel provides real-time sensor data, weather forecasts, and AI-powered recommendations.
+A powerful Flutter-based smart agriculture management app that helps farmers optimize fertilizer usage, monitor crops, and control irrigation remotely. The app provides real-time sensor data, weather forecasts, and AI-powered recommendations.
 
 ![Promo GIF](demo/promo.gif)
 
