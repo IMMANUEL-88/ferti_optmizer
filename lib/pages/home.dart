@@ -61,12 +61,12 @@ class _HomeState extends State<Home> with SingleTickerProviderStateMixin {
   static const int _maxGeminiRetries = 3;
 
   // Simulated sensor data
-  double _simulatedSoilMoisture = 0;
-  double _simulatedTemperature = 0;
-  double _simulatedHumidity = 0;
-  double _simulatedNitrogen = 0;
-  double _simulatedPhosphorous = 0;
-  double _simulatedPotassium = 0;
+  double _soilMoisture = 0;
+  double _temperature = 0;
+  double _humidity = 0;
+  double _nitrogen = 0;
+  double _phosphorous = 0;
+  double _potassium = 0;
 
   // Motor control
   late AnimationController _motorController;
@@ -127,32 +127,32 @@ class _HomeState extends State<Home> with SingleTickerProviderStateMixin {
     },
   };
 
-  void _generateSimulatedData() {
+  void _data() {
     setState(() {
       // Small incremental changes (1-5% of range)
-      _simulatedSoilMoisture =
-          (_simulatedSoilMoisture + (_random.nextDouble() * 40 - 20))
+      _soilMoisture =
+          (_soilMoisture + (_random.nextDouble() * 40 - 20))
               .clamp(200.0, 1000.0);
-      _simulatedTemperature =
-          (_simulatedTemperature + (_random.nextDouble() * 2 - 1))
+      _temperature =
+          (_temperature + (_random.nextDouble() * 2 - 1))
               .clamp(20.0, 40.0);
-      _simulatedHumidity =
-          (_simulatedHumidity + (_random.nextDouble() * 5 - 2.5))
+      _humidity =
+          (_humidity + (_random.nextDouble() * 5 - 2.5))
               .clamp(30.0, 100.0);
-      _simulatedNitrogen = double.parse(
-        (_simulatedNitrogen + (_random.nextDouble() * 4 - 2))
+      _nitrogen = double.parse(
+        (_nitrogen + (_random.nextDouble() * 4 - 2))
             .clamp(10.0, 100.0)
             .toStringAsFixed(1),
       );
 
-      _simulatedPhosphorous = double.parse(
-        (_simulatedPhosphorous + (_random.nextDouble() * 4 - 2))
+      _phosphorous = double.parse(
+        (_phosphorous + (_random.nextDouble() * 4 - 2))
             .clamp(10.0, 100.0)
             .toStringAsFixed(1),
       );
 
-      _simulatedPotassium = double.parse(
-        (_simulatedPotassium + (_random.nextDouble() * 4 - 2))
+      _potassium = double.parse(
+        (_potassium + (_random.nextDouble() * 4 - 2))
             .clamp(10.0, 100.0)
             .toStringAsFixed(1),
       );
@@ -163,17 +163,17 @@ class _HomeState extends State<Home> with SingleTickerProviderStateMixin {
     // Only update Gemini questions every 5 minutes
     if (_shouldUpdateGemini) {
       question1 =
-          'Generate a concise 12-word response explaining what a soil moisture level of ${_simulatedSoilMoisture.round()} means,(use this to analyse the moisture level: very dry:801 - 1024, dry:601 - 800, moist:401 - 600, wet:201 - 400, waterlogged:0 - 200 (note dont show this in response).';
+          'Generate a concise 12-word response explaining what a soil moisture level of ${_soilMoisture.round()} means,(use this to analyse the moisture level: very dry:801 - 1024, dry:601 - 800, moist:401 - 600, wet:201 - 400, waterlogged:0 - 200 (note dont show this in response).';
       question2 =
-          'Generate a concise 12-word response explaining what a humidity level of ${_simulatedHumidity.round()} means,';
+          'Generate a concise 12-word response explaining what a humidity level of ${_humidity.round()} means,';
       question3 =
-          'Generate a concise 12-word response explaining what a temperature level of ${_simulatedTemperature.round()}degree celsius means,';
+          'Generate a concise 12-word response explaining what a temperature level of ${_temperature.round()}degree celsius means,';
       question4 =
-          'Generate a concise 12-word response explaining what a Nitrogen level of ${_simulatedNitrogen.round()} means, (croptype: Barley, soiltype: Loamy).';
+          'Generate a concise 12-word response explaining what a Nitrogen level of ${_nitrogen.round()} means, (croptype: Barley, soiltype: Loamy).';
       question5 =
-          'Generate a concise 12-word response explaining what a Phosphorous level of ${_simulatedPhosphorous.round()} means, (croptype: Barley, soiltype: Loamy).';
+          'Generate a concise 12-word response explaining what a Phosphorous level of ${_phosphorous.round()} means, (croptype: Barley, soiltype: Loamy).';
       question6 =
-          'Generate a concise 12-word response explaining what a Potassium level of ${_simulatedPotassium.round()} means, (croptype: Barley, soiltype: Loamy).';
+          'Generate a concise 12-word response explaining what a Potassium level of ${_potassium.round()} means, (croptype: Barley, soiltype: Loamy).';
 
       getRecommendation();
       _shouldUpdateGemini = false;
@@ -182,11 +182,11 @@ class _HomeState extends State<Home> with SingleTickerProviderStateMixin {
 
   void _startSensorDataTimer() {
     // Generate initial data
-    _generateSimulatedData();
+    _data();
 
     // Update UI every 10 seconds with small changes
     _uiUpdateTimer = Timer.periodic(Duration(seconds: 3), (timer) {
-      _generateSimulatedData();
+      _data();
       _fetchSensorData();
       _fetchNutritionData();
     });
@@ -263,32 +263,32 @@ class _HomeState extends State<Home> with SingleTickerProviderStateMixin {
 
   Future<List<SensorDataModel>> _fetchSensorData() async {
     // Return simulated data instead of API call
-    final simulatedData = SensorDataModel(
-      sensorId: 'simulated',
-      soilMoisture: _simulatedSoilMoisture,
-      temperature: _simulatedTemperature,
-      humidity: _simulatedHumidity,
+    final data = SensorDataModel(
+      sensorId: '001',
+      soilMoisture: _soilMoisture,
+      temperature: _temperature,
+      humidity: _humidity,
       timestamp: _lastSensorUpdate,
       fieldId: '69',
     );
 
     setState(() {
-      _sensorDataList = [simulatedData];
-      _sensorDataFuture = Future.value([simulatedData]);
+      _sensorDataList = [data];
+      _sensorDataFuture = Future.value([data]);
     });
 
-    return [simulatedData];
+    return [data];
   }
 
   Future<List<NutritionDataModel>> _fetchNutritionData() async {
-    final simulatedData = NutritionDataModel(
-        id: 'simulated',
+    final data = NutritionDataModel(
+        id: '001',
         fieldId: '69',
         soilType: 'Loamy',
         phLevel: 6,
-        nitrogen: _simulatedNitrogen,
-        phosphorus: _simulatedPhosphorous,
-        potassium: _simulatedPotassium,
+        nitrogen: _nitrogen,
+        phosphorus: _phosphorous,
+        potassium: _potassium,
         otherNutrients: {'Calcium': 3.0},
         last_fertilizer: _nutritionDataList?.first.last_fertilizer ??
             'Urea', // Preserve existing value
@@ -296,11 +296,11 @@ class _HomeState extends State<Home> with SingleTickerProviderStateMixin {
         cropType: 'Paddy');
 
     setState(() {
-      _nutritionDataList = [simulatedData];
-      _nutritionDataFuture = Future.value([simulatedData]);
+      _nutritionDataList = [data];
+      _nutritionDataFuture = Future.value([data]);
     });
 
-    return [simulatedData];
+    return [data];
   }
 
   void fetchData() async {
@@ -426,18 +426,6 @@ class _HomeState extends State<Home> with SingleTickerProviderStateMixin {
           return;
         }
       }
-
-      // Position position = await Geolocator.getCurrentPosition();
-      // setState(() {
-      //   _fieldLocations['Field 1']!['latitude'] = position.latitude;
-      //   _fieldLocations['Field 1']!['longitude'] = position.longitude;
-      //   _fieldLocations['Field 1']!['name'] = 'Your Location';
-      // });
-
-      // if (_selectedField == 'Field 1') {
-      //   _fetchWeather();
-      //   fetchData();
-      // }
     } catch (e) {
       print("Error getting location: $e");
       // Fallback to a default location if user location can't be obtained
@@ -454,12 +442,12 @@ class _HomeState extends State<Home> with SingleTickerProviderStateMixin {
       _fetchWeather();
       fetchData();
     });
-    _simulatedSoilMoisture = 500.0;
-    _simulatedTemperature = 25.0;
-    _simulatedHumidity = 50.0;
-    _simulatedNitrogen = 50.0;
-    _simulatedPhosphorous = 50.0;
-    _simulatedPotassium = 50.0;
+    _soilMoisture = 500.0;
+    _temperature = 25.0;
+    _humidity = 50.0;
+    _nitrogen = 50.0;
+    _phosphorous = 50.0;
+    _potassium = 50.0;
     _startSensorDataTimer();
     _nutritionDataFuture = _fetchNutritionData();
     _sensorDataFuture = _fetchSensorData();
