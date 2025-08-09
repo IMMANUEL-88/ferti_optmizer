@@ -10,14 +10,18 @@ A powerful Flutter-based smart agriculture management app that helps farmers **o
   - Live sensor data visualization (soil moisture, temperature, humidity)
   - Current weather and 24-hour forecast
   - Quick access to motor control
-  
+
+
   ![Home Dashboard](demo/home.gif)
+  
 
 - **⚡ Real-time Optimization**
   - One-click fertilizer optimization using ML model
   - NPK level recommendations
+
      
   ![Optimization](demo/optimize.gif)
+  
 
 - **🤖 Gemini AI-Powered Analysis**
   - 💬 Chat with a Gemini-powered AI bot for instant answers  
@@ -25,37 +29,48 @@ A powerful Flutter-based smart agriculture management app that helps farmers **o
   - 🗣️ Supports multiple regional languages for enhanced accessibility  
   - 🧠 AI learns from inputs and provides accurate insights
 
+
   ![Gemini Analysis](demo/gemini.gif)
+  
 
 - **🌦 Weather Forecast**
   - 7-day weather forecast with remarks
   - Weather alerts and recommendations
+
   
   ![Weather Page](demo/weather.gif)
+  
 
 - **🚰 Irrigation Control**
   - Remote motor on/off control
   - Automatic scheduling based on soil conditions
+
   
   ![Motor Control](demo/motor.gif)
+  
 
 - **📊 Analytics Dashboard**
-  - Historical sensor data graphs
-  - Crop health trends over time
+  - Live Sensor graph
+
   
   ![Analytics Dashboard](demo/analytics.gif)
+  
 
 - **💬 Multi-language Chat Support**
   - Gemini-powered chat interface
   - Regional language support for farmers
+
   
   ![Chat Feature](demo/chat.gif)
+  
   
 - **👤 Field Management**
   - Switch between multiple fields
   - View field-specific sensor data
+
   
   ![Field Switching](demo/fields.gif)
+  
 
 - **⚙️ Settings Page**
   - 👤 View and manage your **user profile**  
@@ -64,7 +79,9 @@ A powerful Flutter-based smart agriculture management app that helps farmers **o
   - 💧 Switch **Remote Motor Control Feature** on/off  
   - 🚪 Use the **Logout Button** to securely sign out  
 
+
 ![Settings Page](demo/settings.gif)
+
 
 ## 🛠 Tech Stack
 
