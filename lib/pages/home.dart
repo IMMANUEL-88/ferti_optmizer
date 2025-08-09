@@ -71,7 +71,7 @@ class _HomeState extends State<Home> with SingleTickerProviderStateMixin {
   // Motor control
   late AnimationController _motorController;
   String? motorStatus = 'OFF'; // Default motor status
-  bool _shouldUseGeminiAPI = false;
+  bool _shouldUseGeminiAPI = true;
 
   // Weather service API key
   final _weatherService = WeatherService('90bf9ca3170d2fbeddd2548cddcb6c33');
