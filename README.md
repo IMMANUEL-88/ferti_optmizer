@@ -4,6 +4,28 @@ A powerful Flutter-based smart agriculture management app that helps farmers **o
 
 ![Promo GIF](demo/promo.gif)
 
+
+## 👨‍💻 Creators
+<table align="center">
+  <tr>
+    <td align="center">
+      <a href="https://github.com/IMMANUEL-88">
+        <img src="https://github.com/IMMANUEL-88.png" width="100px;" alt="Immanuel Jeyam"/>
+        <br />
+        <sub><b>Immanuel Jeyam</b></sub>
+      </a>
+    </td>
+    <td align="center">
+      <a href="https://github.com/jijinjebanesh">
+        <img src="https://github.com/jijinjebanesh.png" width="100px;" alt="Jijin Jebanesh"/>
+        <br />
+        <sub><b>Jijin Jebanesh</b></sub>
+      </a>
+    </td>
+  </tr>
+</table>
+
+
 ## 🌟 Features
 
 - **🏠 Home Dashboard**
