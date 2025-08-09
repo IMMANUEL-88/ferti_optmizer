@@ -182,6 +182,17 @@ The backend is built using Node.js with Express.js, handling:
   - JWT authentication
   - Role-based access control
   - API rate limiting
+ 
+## ​👥 Contributors
+
+<a href="https://github.com/IMMANUEL-88">
+  <img src="https://github.com/IMMANUEL-88.png?size=50" alt="Immanuel" width="50" />
+</a>
+<a href="https://github.com/jijinjebanesh">
+  <img src="https://github.com/jijinjebanesh.png?size=50" alt="Jijin" width="50" />
+</a>
+
+
 
 ## 🛠 Setup
 
